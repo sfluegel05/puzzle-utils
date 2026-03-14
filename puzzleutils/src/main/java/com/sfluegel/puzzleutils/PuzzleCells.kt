@@ -41,6 +41,7 @@ fun PuzzleGridCell(
     isSelected: Boolean,
     backgroundColor: Color,
     onClick: () -> Unit,
+    cellPadding: Dp = 2.dp,
     content: @Composable BoxScope.() -> Unit = {}
 ) {
     val borderColor = if (isSelected) MaterialTheme.colorScheme.primary
@@ -50,7 +51,7 @@ fun PuzzleGridCell(
     Box(
         modifier = Modifier
             .size(cellSize)
-            .padding(2.dp)
+            .padding(cellPadding)
             .background(backgroundColor, CellShape)
             .border(borderWidth, borderColor, CellShape)
             .clickable(onClick = onClick),
